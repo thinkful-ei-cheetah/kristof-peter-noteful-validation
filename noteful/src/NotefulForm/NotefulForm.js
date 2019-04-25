@@ -3,10 +3,10 @@ import './NotefulForm.css'
 import NoteContext from '../NoteContext'
 import API from '../App/API';
 import {withRouter} from 'react-router';
+import PropTypes from 'prop-types';
 
 
 export default withRouter(function NotefulForm(props) {
-    console.log(props);
   const { className,children, ...otherProps } = props
   async function handleSubmit(e, data ) {
     e.preventDefault();
@@ -24,6 +24,15 @@ export default withRouter(function NotefulForm(props) {
     console.log(data.noteFolderSelect)
     props.history.push(`/folder/${data.noteFolderSelect}`);
   }
+
+  NotefulForm.propTypes = {
+    history: PropTypes.object,
+    location: PropTypes.object,
+    match: PropTypes.object,
+    children: PropTypes.array,
+  };
+
+
   return (
     <NoteContext.Consumer>
       {(data)=>{
@@ -43,3 +52,4 @@ export default withRouter(function NotefulForm(props) {
   </NoteContext.Consumer>
   )
 })
+

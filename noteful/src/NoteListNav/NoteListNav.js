@@ -5,6 +5,8 @@ import CircleButton from '../CircleButton/CircleButton'
 import { countNotesForFolder } from '../notes-helpers'
 import './NoteListNav.css'
 
+import PropTypes from 'prop-types';
+
 export default function NoteListNav(props) {
   return (
     <div className='NoteListNav'>
@@ -42,3 +44,11 @@ export default function NoteListNav(props) {
 NoteListNav.defaultProps = {
   folders: []
 }
+
+NoteListNav.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  notes: PropTypes.array,
+  folders:PropTypes.array,
+};

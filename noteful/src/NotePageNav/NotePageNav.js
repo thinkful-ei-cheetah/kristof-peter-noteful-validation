@@ -3,9 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CircleButton from '../CircleButton/CircleButton'
 import './NotePageNav.css'
 
+import PropTypes from 'prop-types';
+
+
 export default function NotePageNav(props) {
-  console.log(props)
+
   return (
+    
     <div className='NotePageNav'>
       <CircleButton
         tag='button'
@@ -31,3 +35,10 @@ NotePageNav.defaultProps = {
     goBack: () => {}
   }
 }
+
+NotePageNav.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+
+};
