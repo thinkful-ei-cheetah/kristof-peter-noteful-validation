@@ -8,6 +8,7 @@ export default class AddNote extends Component {
     folders: [],
   }
   render() {
+    console.log(this.props);
     const { folders } = this.props
     return (
       <NoteContext.Consumer>

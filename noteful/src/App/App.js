@@ -27,11 +27,17 @@ class App extends Component {
   };
 
 
-
+  formvalidation = () => {
+  }
 
   handleFormChange = (e) => {
   
     const {name, value} = e.target;
+
+    if(value === " " && this.state[name] ===""){
+      this.setState({error: 'Cannot begin with spaces'});
+    }
+
 
     this.setState({
       [name]: value
@@ -195,6 +201,7 @@ render() {
       noteFolderSelect: this.state['folder-select'],
       deleteNote : this.noteDelete,
       handleFormChange: this.handleFormChange,
+      error: this.state.error,
     }
 
     return (
