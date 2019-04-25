@@ -7,6 +7,8 @@ export default class API extends Component{
     const searchURL = 'http://localhost:9090/db';
 
     // const queryString = this.formatQueryParams(data);
+
+
     const url = searchURL;
 
     console.log(url);
@@ -42,8 +44,19 @@ export default class API extends Component{
     fetch(url, options)
     }
 
-    static apiDelete
-
+    static apiPost(data){
+      const itemName = {name: data.name};
+      const jsonName = JSON.stringify(itemName)
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: jsonName
+            };
+            console.log(jsonName);
+          return fetch(`http://localhost:9090/${data.type}`, options); 
+    }
 
 }
 
