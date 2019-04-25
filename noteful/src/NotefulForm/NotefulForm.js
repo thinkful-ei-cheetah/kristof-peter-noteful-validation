@@ -5,6 +5,8 @@ import API from '../App/API';
 import {withRouter} from 'react-router';
 import PropTypes from 'prop-types';
 
+import ErrorBoundary from '../ErrorBoundaries/ErrorBoundary'
+
 
 export default withRouter(function NotefulForm(props) {
   const { className,children, ...otherProps } = props
@@ -34,22 +36,24 @@ export default withRouter(function NotefulForm(props) {
 
 
   return (
-    <NoteContext.Consumer>
-      {(data)=>{
-      
-      return(<form
-      className={['Noteful-form', className].join(' ')}
-      action='#'
-      onSubmit={(e) => handleSubmit(e,data)}
-      {...otherProps}>
-      
-      {data.error ? <div>Field cannot be blank</div> :''}
-      {children}
-        </form>
-      )}}
+    <ErrorBoundary>
+      <NoteContext.Consumer>
+        {(data)=>{
+        
+        return(<form
+        className={['Noteful-form', className].join(' ')}
+        action='#'
+        onSubmit={(e) => handleSubmit(e,data)}
+        {...otherProps}>
+        
+        {data.error ? <div>Field cannot be blank</div> :''}
+        {children}
+          </form>
+        )}}
+    
   
-
-  </NoteContext.Consumer>
+    </NoteContext.Consumer>
+    </ErrorBoundary>
   )
 })
 
