@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import NotefulForm from '../NotefulForm/NotefulForm'
 import './AddFolder.css'
+import NoteContext from '../NoteContext'
 
 export default class AddFolder extends Component {
+  static contextType = NoteContext
   render() {
     return (
       <section className='AddFolder'>
@@ -12,7 +14,7 @@ export default class AddFolder extends Component {
             <label htmlFor='folder-name-input'>
               Name
             </label>
-            <input type='text' id='folder-name-input' />
+            <input type='text' id='folder-name-input' name='folder-name-input' value={this.context.folderName} onChange={this.context.handleFormChange}/>
           </div>
           <div className='buttons'>
             <button type='submit'>
