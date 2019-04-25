@@ -55,7 +55,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    API.apiPost({name:'test2', type:'folders'});
+    // API.apiPost({name:'test2', type:'folders'});
 
 
       API.apiGet()
