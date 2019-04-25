@@ -17,7 +17,7 @@ export default withRouter(function NotefulForm(props) {
       console.log(props)
       await API.apiPost({ datum:{name:data.folderName, }, type:props.type})
       await data.updateState();
-      props.history.push(`/`);
+      props.history.goBack();
     }
     else
 
