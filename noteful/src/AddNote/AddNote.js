@@ -8,6 +8,7 @@ export default class AddNote extends Component {
     folders: [],
   }
   render() {
+    console.log(this.props);
     const { folders } = this.props
     return (
       <NoteContext.Consumer>
@@ -16,7 +17,7 @@ export default class AddNote extends Component {
           return(
             <section className='AddNote'>
             <h2>Create a note</h2>
-            <NotefulForm type='notes'>
+            <NotefulForm>
               <div className='field'>
                 <label htmlFor='note-name-input'>
                   Name
