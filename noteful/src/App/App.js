@@ -52,31 +52,36 @@ class App extends Component {
     return queryItems.join('&');
   }
 
+
+  updateState = () => {
+
+    API.apiGet()
+    .then(res => {
+      if(!res.ok) {
+        throw new Error('Something went wrong, please try again later.');
+      }
+      return res;
+    })
+    .then(res => res.json())
+    .then(data => { 
+      console.log(data)
+      this.setState({
+        notes:data.notes,
+        folders: data.folders,
+        error: null
+      });
+    })
+    .catch(err => {
+      this.setState({
+        error: err.message
+      });
+    });
+
+  }
+
   componentDidMount() {
     // API.apiPost({name:'test2', type:'folders'});
-
-
-      API.apiGet()
-      .then(res => {
-        if(!res.ok) {
-          throw new Error('Something went wrong, please try again later.');
-        }
-        return res;
-      })
-      .then(res => res.json())
-      .then(data => { 
-        console.log(data)
-        this.setState({
-          notes:data.notes,
-          folders: data.folders,
-          error: null
-        });
-      })
-      .catch(err => {
-        this.setState({
-          error: err.message
-        });
-      });
+    this.updateState();
   }
   
   
@@ -197,10 +202,11 @@ render() {
       folderName: this.state['folder-name-input'],
       noteNameInput: this.state['note-name-input'],
       noteContentInput:this.state['note-content-input'],
-      noteFolderSelect: this.state['folder-select'],
+      noteFolderSelect: this.state['note-folder-select'],
       deleteNote : this.noteDelete,
       handleFormChange: this.handleFormChange,
       error: this.state.error,
+      updateState:this.updateState,
     }
 
     return (

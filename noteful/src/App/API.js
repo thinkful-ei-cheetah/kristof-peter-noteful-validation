@@ -45,18 +45,35 @@ export default class API extends Component{
     }
 
     static apiPost(data){
-      const itemName = {name: data.name};
-      const jsonName = JSON.stringify(itemName)
-            const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: jsonName
-            };
-            console.log(jsonName);
+      
+
+      if(data.type === 'folders') {  
+        const itemName = {name: data.datum.name};
+        const jsonName = JSON.stringify(itemName)
+        const options = {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: jsonName
+          };
+          console.log(jsonName);
           return fetch(`http://localhost:9090/${data.type}`, options); 
-    }
+}
+else{
+  const itemBody = {name: data.datum.name, content:data.datum.content , modified:data.datum.modified, folderId:data.datum.folderId}
+  const jsonBody = JSON.stringify(itemBody)
+  const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonBody
+    };
+    console.log(jsonBody);
+    return fetch(`http://localhost:9090/${data.type}`, options); 
+}
+}
 
 }
 
