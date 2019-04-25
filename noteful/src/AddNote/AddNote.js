@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import NotefulForm from '../NotefulForm/NotefulForm'
 import './AddNote.css';
 import NoteContext from '../NoteContext';
+import PropTypes from 'prop-types'
 
-export default class AddNote extends Component {
+ class AddNote extends Component {
   static defaultProps = {
     folders: [],
   }
@@ -60,3 +61,11 @@ export default class AddNote extends Component {
     )
   }
 }
+
+AddNote.propTypes ={
+  folder: PropTypes.array.isRequired
+}
+
+
+export default AddNote
+

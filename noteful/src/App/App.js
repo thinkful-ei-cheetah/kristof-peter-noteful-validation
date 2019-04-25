@@ -10,6 +10,7 @@ import AddNote from '../AddNote/AddNote'
 import { getNotesForFolder, findNote, findFolder, countNotesForFolder } from '../notes-helpers'
 import './App.css'
 import API from './API';
+import ErrorBoundary from '../ErrorBoundaries/ErrorBoundary'
 
 import NoteContext from '../NoteContext';
 
@@ -27,9 +28,6 @@ class App extends Component {
   };
 
 
-  formvalidation = () => {
-  }
-
   handleFormChange = (e) => {
   
     const {name, value} = e.target;
@@ -37,16 +35,16 @@ class App extends Component {
     if(value === " " && this.state[name] ===""){
       this.setState({error: 'Cannot begin with spaces'});
       return 
-    }
-    else 
+    }  else {
     this.setState({
       [name]: value,
-      error: ''
+      error: '',
     })
+  }
 
   }
 
-  static context = NoteContext;
+  static contextType = NoteContext;
 
   formatQueryParams(params) {
     const queryItems = Object.keys(params)
@@ -206,6 +204,7 @@ render() {
     }
 
     return (
+      <ErrorBoundary>
       <NoteContext.Provider 
         value={contextValue}>
         <div className='App'>
@@ -224,6 +223,7 @@ render() {
           </main>
         </div>
       </NoteContext.Provider>
+      </ErrorBoundary>
     )
   }
 }

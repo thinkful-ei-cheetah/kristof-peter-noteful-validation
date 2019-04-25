@@ -14,7 +14,7 @@ export default function NotefulForm(props) {
       action='#'
       {...otherProps}>
       
-      {data.error ? <div>You have error fool</div> :'test'}
+      {data.error ? <div>Field cannot be blank</div> :''}
       {children}
         </form>
       )}}
