@@ -42,6 +42,8 @@ export default class API extends Component{
     fetch(url, options)
     }
 
+    static apiDelete
+
 
 }
 
