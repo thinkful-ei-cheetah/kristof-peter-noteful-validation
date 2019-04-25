@@ -11,7 +11,7 @@ export default class AddNote extends Component {
     console.log(this.props);
     const { folders } = this.props
     return (
-      <NoteContext.Consumer>
+      <NoteContext.Consumer type='notes'>
         {(prop)=>{
 
           return(
