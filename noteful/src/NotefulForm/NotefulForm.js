@@ -13,11 +13,12 @@ export default function NotefulForm(props) {
       className={['Noteful-form', className].join(' ')}
       action='#'
       {...otherProps}>
+      
       {data.error ? <div>You have error fool</div> :'test'}
       {children}
         </form>
       )}}
-   
+  
 
   </NoteContext.Consumer>
   )

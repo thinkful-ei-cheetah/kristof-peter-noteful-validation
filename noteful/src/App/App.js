@@ -36,11 +36,12 @@ class App extends Component {
 
     if(value === " " && this.state[name] ===""){
       this.setState({error: 'Cannot begin with spaces'});
+      return 
     }
-
-
+    else 
     this.setState({
-      [name]: value
+      [name]: value,
+      error: ''
     })
 
   }
