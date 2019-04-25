@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Note.css'
 import NoteContext from '../NoteContext';
 
+import PropTypes from 'prop-types';
+
 export default class Note extends Component {
 
   render() {
@@ -42,3 +44,10 @@ export default class Note extends Component {
   )
       }
 }
+
+
+Note.propTypes = {
+  id: PropTypes.string,
+  modified: PropTypes.string,
+  name: PropTypes.string,
+};
