@@ -34,6 +34,9 @@ class App extends Component {
   }
 
   componentDidMount() {
+    API.apiPost({name:'test2', type:'folders'});
+
+
       API.apiGet()
       .then(res => {
         if(!res.ok) {
