@@ -19,13 +19,27 @@ class App extends Component {
     notes: [],
     folders: [],
     error:null,
-    params: ''
-  
+    params: '',
+    'folder-name-input': '',
+    'note-name-input': '',
+    'note-content-input':'',
+    'note-folder-select': '',
   };
 
+
+
+
+  handleFormChange = (e) => {
+  
+    const {name, value} = e.target;
+
+    this.setState({
+      [name]: value
+    })
+
+  }
+
   static context = NoteContext;
-
-
 
   formatQueryParams(params) {
     const queryItems = Object.keys(params)
@@ -172,7 +186,12 @@ class App extends Component {
 render() {
 
     const contextValue = {
+      folderName: this.state['folder-name-input'],
+      noteNameInput: this.state['note-name-input'],
+      noteContentInput:this.state['note-content-input'],
+      noteFolderSelect: this.state['folder-select'],
       deleteNote : this.noteDelete,
+      handleFormChange: this.handleFormChange,
     }
 
     return (
