@@ -16,13 +16,15 @@ export default withRouter(function NotefulForm(props) {
       await API.apiPost({ datum:{name:data.folderName, }, type:props.type})
       await data.updateState();
       props.history.push(`/`);
-    }
-    else
+    } else{
 
     await API.apiPost({ datum:{name:data.noteNameInput, content:data.noteContentInput,folderId:data.noteFolderSelect,modified:Date.now() ,}, type:'notes'})
     await data.updateState();
     console.log(data.noteFolderSelect)
     props.history.push(`/folder/${data.noteFolderSelect}`);
+  }
+    data.clearData();
+    
   }
   return (
     <NoteContext.Consumer>

@@ -20,12 +20,20 @@ class App extends Component {
     notes: [],
     folders: [],
     error:null,
-    params: '',
     'folder-name-input': '',
     'note-name-input': '',
     'note-content-input':'',
     'note-folder-select': '',
   };
+
+  clearData = () => {
+    this.setState({
+      'folder-name-input': '',
+      'note-name-input': '',
+      'note-content-input':'',
+      'note-folder-select': '',
+    })
+  }
 
 
   handleFormChange = (e) => {
@@ -207,6 +215,7 @@ render() {
       handleFormChange: this.handleFormChange,
       error: this.state.error,
       updateState:this.updateState,
+      clearData: this.clearData,
     }
 
     return (
