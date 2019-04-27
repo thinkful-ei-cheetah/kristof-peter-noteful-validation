@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import Note from '../Note/Note'
 import './NotePageMain.css'
 
+import PropTypes from 'prop-types';
+
 export default class NotePageMain extends Component {
 
   render() {
-
     return (
       <section className='NotePageMain'>
         <Note
@@ -33,3 +34,10 @@ NotePageMain.defaultProps = {
     }
 
 }
+
+NotePageMain.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  note: PropTypes.object,
+};

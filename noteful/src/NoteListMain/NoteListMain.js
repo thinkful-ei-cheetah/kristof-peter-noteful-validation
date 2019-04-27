@@ -5,7 +5,10 @@ import Note from '../Note/Note'
 import CircleButton from '../CircleButton/CircleButton'
 import './NoteListMain.css'
 
+import PropTypes from 'prop-types';
+
 export default function NoteListMain(props) {
+  console.log(props)
   return (
     <section className='NoteListMain'>
       <ul>
@@ -38,3 +41,10 @@ export default function NoteListMain(props) {
 NoteListMain.defaultProps = {
   notes: [],
 }
+
+NoteListMain.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object,
+  notes: PropTypes.array,
+};
