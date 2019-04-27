@@ -17,7 +17,7 @@ export default withRouter(function NotefulForm(props) {
       console.log(props)
       await API.apiPost({ datum:{name:data.folderName, }, type:props.type})
       await data.updateState();
-
+      console.log(otherProps)
 
       props.history.goBack();
     }
@@ -26,7 +26,7 @@ export default withRouter(function NotefulForm(props) {
 
     await API.apiPost({ datum:{name:data.noteNameInput, content:data.noteContentInput,folderId:data.noteFolderSelect,modified:Date.now() ,}, type:'notes'})
     await data.updateState();
-    console.log(data.noteFolderSelect)
+ 
     props.history.push(`/folder/${data.noteFolderSelect}`);
   }
     data.clearData();
@@ -40,7 +40,7 @@ export default withRouter(function NotefulForm(props) {
     children: PropTypes.array,
   };
 
-
+  console.log(otherProps)
   return (
     <ErrorBoundary>
       <NoteContext.Consumer>
@@ -50,8 +50,8 @@ export default withRouter(function NotefulForm(props) {
         className={['Noteful-form', className].join(' ')}
         action='#'
         onSubmit={(e) => handleSubmit(e,data)}
-        {...otherProps}>
-        
+          // {...otherProps}>
+        >
         {data.error ? <div>Field cannot be blank</div> :''}
         {children}
           </form>

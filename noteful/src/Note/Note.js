@@ -50,7 +50,13 @@ export default class Note extends Component {
 
 
 Note.propTypes = {
-  id: PropTypes.string,
-  modified: PropTypes.string,
+  id: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]), 
+  modified: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]), 
   name: PropTypes.string,
 };
