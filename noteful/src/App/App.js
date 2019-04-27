@@ -72,7 +72,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => { 
-      console.log(data)
+
       this.setState({
         notes:data.notes,
         folders: data.folders,

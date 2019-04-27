@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
     folders: [],
   }
   render() {
-    console.log(this.props);
+
     const { folders } = this.props
     return (
       <NoteContext.Consumer type='notes'>
@@ -45,7 +45,9 @@ import PropTypes from 'prop-types'
                 </select>
               </div>
               <div className='buttons'>
-                <button type='submit'>
+                <button disabled={prop.noteNameInput=== ""}
+
+                  type='submit'>
                   Add note
                 </button>
               </div>

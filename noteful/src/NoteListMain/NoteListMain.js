@@ -8,7 +8,8 @@ import './NoteListMain.css'
 import PropTypes from 'prop-types';
 
 export default function NoteListMain(props) {
-  console.log(props)
+
+
   return (
     <section className='NoteListMain'>
       <ul>

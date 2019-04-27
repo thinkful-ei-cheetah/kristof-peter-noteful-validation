@@ -11,7 +11,7 @@ export default class API extends Component{
 
     const url = searchURL;
 
-    console.log(url);
+
 
     const options = {
       method: 'GET',
@@ -31,7 +31,7 @@ export default class API extends Component{
     // const queryString = this.formatQueryParams(data);
     const url = searchURL;
 
-    console.log(url);
+
 
     const options = {
       method: 'DELETE',
@@ -57,7 +57,7 @@ export default class API extends Component{
               },
               body: jsonName
           };
-          console.log(jsonName);
+
           return fetch(`http://localhost:9090/${data.type}`, options); 
 }
 else{
@@ -70,7 +70,6 @@ else{
         },
         body: jsonBody
     };
-    console.log(jsonBody);
     return fetch(`http://localhost:9090/${data.type}`, options); 
 }
 }

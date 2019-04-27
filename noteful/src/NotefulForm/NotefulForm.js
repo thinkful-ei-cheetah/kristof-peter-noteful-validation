@@ -14,10 +14,10 @@ export default withRouter(function NotefulForm(props) {
     e.preventDefault();
 
     if (props.type === 'folders'){
-      console.log(props)
+
       await API.apiPost({ datum:{name:data.folderName, }, type:props.type})
       await data.updateState();
-      console.log(otherProps)
+
 
       props.history.goBack();
     }
@@ -40,7 +40,7 @@ export default withRouter(function NotefulForm(props) {
     children: PropTypes.array,
   };
 
-  console.log(otherProps)
+
   return (
     <ErrorBoundary>
       <NoteContext.Consumer>
