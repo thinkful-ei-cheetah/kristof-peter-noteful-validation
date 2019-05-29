@@ -23,20 +23,20 @@ import PropTypes from 'prop-types'
                 <label htmlFor='note-name-input'>
                   Name
                 </label>
-                <input type='text' id='note-name-input' name='note-name-input' value={prop.noteNameInput} onChange={prop.handleFormChange}/>
+                <input required type='text' id='note-name-input' name='note-name-input' value={prop.noteNameInput} onChange={prop.handleFormChange}/>
               </div>
               <div className='field'>
                 <label htmlFor='note-content-input'>
                   Content
                 </label>
-                <textarea id='note-content-input' name='note-content-input' value={prop.noteContentInput} onChange={prop.handleFormChange}/>
+                <textarea required id='note-content-input' name='note-content-input' value={prop.noteContentInput} onChange={prop.handleFormChange}/>
               </div>
               <div className='field'>
                 <label htmlFor='note-folder-select'>
                   Folder
                 </label>
-                <select id='note-folder-select' name= 'note-folder-select' value={prop.noteFolderSelect} onChange={prop.handleFormChange} >
-                  <option value={null}>...</option>
+                <select required id='note-folder-select' name= 'note-folder-select' value={prop.noteFolderSelect} onChange={prop.handleFormChange} >
+                  <option value="">...</option>
                   {folders.map(folder =>
                     <option key={folder.id} value={folder.id}>
                       {folder.name}

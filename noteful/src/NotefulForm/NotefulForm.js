@@ -50,8 +50,7 @@ export default withRouter(function NotefulForm(props) {
         {children}
           </form>
         )}}
-    
-  
+
     </NoteContext.Consumer>
     </ErrorBoundary>
   )

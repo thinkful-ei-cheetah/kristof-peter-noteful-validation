@@ -8,7 +8,6 @@ export default class API extends Component{
 
     // const queryString = this.formatQueryParams(data);
 
-
     const url = searchURL;
 
     console.log(url);
