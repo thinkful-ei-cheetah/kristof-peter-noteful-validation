@@ -65,7 +65,7 @@ import PropTypes from 'prop-types'
 }
 
 AddNote.propTypes ={
-  folder: PropTypes.array
+  folder: PropTypes.array.isRequired
 }
 
 

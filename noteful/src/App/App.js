@@ -7,7 +7,7 @@ import NoteListMain from '../NoteListMain/NoteListMain'
 import NotePageMain from '../NotePageMain/NotePageMain'
 import AddFolder from '../AddFolder/AddFolder'
 import AddNote from '../AddNote/AddNote'
-import { getNotesForFolder, findNote, findFolder } from '../notes-helpers'
+import { getNotesForFolder, findNote, findFolder, countNotesForFolder } from '../notes-helpers'
 import './App.css'
 import API from './API';
 import ErrorBoundary from '../ErrorBoundaries/ErrorBoundary'
@@ -20,6 +20,7 @@ class App extends Component {
     notes: [],
     folders: [],
     error:null,
+    params:'',
     'folder-name-input': '',
     'note-name-input': '',
     'note-content-input':'',
