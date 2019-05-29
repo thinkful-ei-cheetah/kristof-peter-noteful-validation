@@ -7,7 +7,7 @@ import NoteListMain from '../NoteListMain/NoteListMain'
 import NotePageMain from '../NotePageMain/NotePageMain'
 import AddFolder from '../AddFolder/AddFolder'
 import AddNote from '../AddNote/AddNote'
-import { getNotesForFolder, findNote, findFolder, countNotesForFolder } from '../notes-helpers'
+import { getNotesForFolder, findNote, findFolder } from '../notes-helpers'
 import './App.css'
 import API from './API';
 import ErrorBoundary from '../ErrorBoundaries/ErrorBoundary'
@@ -20,12 +20,20 @@ class App extends Component {
     notes: [],
     folders: [],
     error:null,
-    params: '',
     'folder-name-input': '',
     'note-name-input': '',
     'note-content-input':'',
     'note-folder-select': '',
   };
+
+  clearData = () => {
+    this.setState({
+      'folder-name-input': '',
+      'note-name-input': '',
+      'note-content-input':'',
+      'note-folder-select': '',
+    })
+  }
 
 
   handleFormChange = (e) => {
@@ -64,7 +72,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => { 
-      console.log(data)
+
       this.setState({
         notes:data.notes,
         folders: data.folders,
@@ -207,6 +215,7 @@ render() {
       handleFormChange: this.handleFormChange,
       error: this.state.error,
       updateState:this.updateState,
+      clearData: this.clearData,
     }
 
     return (
