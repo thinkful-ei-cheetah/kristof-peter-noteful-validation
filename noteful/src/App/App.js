@@ -164,7 +164,6 @@ class App extends Component {
             render={routeProps => {
               const { folderId } = routeProps.match.params
               const notesForFolder = getNotesForFolder(notes, Number(folderId))
-              console.log(notesForFolder)
               return (
                 <NoteListMain
                   {...routeProps}
