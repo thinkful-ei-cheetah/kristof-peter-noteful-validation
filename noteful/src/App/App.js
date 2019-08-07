@@ -163,7 +163,8 @@ class App extends Component {
             path={path}
             render={routeProps => {
               const { folderId } = routeProps.match.params
-              const notesForFolder = getNotesForFolder(notes, folderId)
+              const notesForFolder = getNotesForFolder(notes, Number(folderId))
+              console.log(notesForFolder)
               return (
                 <NoteListMain
                   {...routeProps}
@@ -177,7 +178,7 @@ class App extends Component {
           path='/note/:noteId'
           render={routeProps => {
             const { noteId } = routeProps.match.params
-            const note = findNote(notes, noteId)
+            const note = findNote(notes, Number(noteId))
             return (
               <NotePageMain
                 {...routeProps}

@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "Noteful-ppae",
+    "name": "Noteful-ppae",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }

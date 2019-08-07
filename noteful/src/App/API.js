@@ -4,18 +4,14 @@ export default class API extends Component{
 
     static apiGet() { 
         
-    const searchURL = 'http://localhost:9090/db';
+    const searchURL = 'https://noteful-server-ppae.herokuapp.com/api/db';
 
     // const queryString = this.formatQueryParams(data);
 
     const url = searchURL;
-
-
-
     const options = {
       method: 'GET',
       headers: {
-        
         "Content-Type": "application/json"
       }
     };
@@ -25,12 +21,10 @@ export default class API extends Component{
 
     static apiDelete(noteId) {
 
-        const searchURL = `http://localhost:9090/notes/${noteId}/`;
+        const searchURL = `https://noteful-server-ppae.herokuapp.com/api/notes/${noteId}/`;
 
     // const queryString = this.formatQueryParams(data);
     const url = searchURL;
-
-
 
     const options = {
       method: 'DELETE',
@@ -57,7 +51,7 @@ export default class API extends Component{
               body: jsonName
           };
 
-          return fetch(`http://localhost:9090/${data.type}`, options); 
+          return fetch(`https://noteful-server-ppae.herokuapp.com/api/${data.type}`, options); 
 }
 else{
   const itemBody = {name: data.datum.name, content:data.datum.content , modified:data.datum.modified, folderId:data.datum.folderId}
@@ -69,7 +63,7 @@ else{
         },
         body: jsonBody
     };
-    return fetch(`http://localhost:9090/${data.type}`, options); 
+    return fetch(`https://noteful-server-ppae.herokuapp.com/api/${data.type}`, options); 
 }
 }
 
